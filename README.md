@@ -1,7 +1,5 @@
-============================================================
 AUTOR: Franciszek Gębik
 TEMAT: Gra "Kółko i Krzyżyk" z wykorzystaniem biblioteki SDL2
-============================================================
 
 SPECYFIKACJA TECHNICZNA:
 * Środowisko kompilacji: GCC (zalecane MinGW-w64 dla systemu Windows).
@@ -41,4 +39,4 @@ CECHY I FUNKCJONALNOŚCI:
 
 UWAGI KOŃCOWE:
 Dla poprawnego linkowania bibliotek, folder 'SDL_assets' musi znajdować się w katalogu nadrzędnym względem plików źródłowych, zgodnie ze ścieżką zdefiniowaną w Makefile.
-============================================================
+
