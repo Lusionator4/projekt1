@@ -19,7 +19,7 @@ STRUKTURA PROJEKTU:
 
 INSTRUKCJA BUDOWANIA PROGRAMU:
 Po rozpakowaniu plików proszę wpisać w terminalu:
-cd projekt-franka-main
+cd projekt1-main
 
 A. Automatyczna kompilacja (rekomendowana):
 W terminalu (w folderze z projektem) należy wywołać komendę:
