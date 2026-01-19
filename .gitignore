@@ -1,0 +1,8 @@
+*.o
+
+*.exe
+tictactoe
+tictactoe.out
+
+.vscode/
+.idea/
