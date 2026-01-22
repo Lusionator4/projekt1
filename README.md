@@ -1,42 +1,34 @@
 AUTOR: Franciszek Gębik
-TEMAT: Gra "Kółko i Krzyżyk" z wykorzystaniem biblioteki SDL2
+TEMAT: Gra "Kółko i Krzyżyk" (SDL2)
 
-SPECYFIKACJA TECHNICZNA:
-* Środowisko kompilacji: GCC (zalecane MinGW-w64 dla systemu Windows).
-* Wykorzystane biblioteki: 
-    - SDL2 (warstwa graficzna i obsługa zdarzeń).
-    - SDL2_ttf (renderowanie czcionek TrueType).
+1. WYMAGANIA I BIBLIOTEKI
+    Kompilator: GCC (zalecane MinGW-w64).
+    Biblioteki: SDL2 oraz SDL2_ttf.
+    Ważne uwagi konfiguracyjne:
+     Plik `font.ttf` musi znajdować się w tym samym katalogu co plik wykonywalny (`.exe`).
+     Biblioteki `.dll` (z folderu `SDL_assets`) muszą być widoczne dla systemu.
+     Folder `SDL_assets` powinien znajdować się katalog wyżej niż pliki źródłowe (jest to wymagane do poprawnego linkowania w Makefile).
 
-ZASOBY I KODOWANIE:
-* Formatowanie: Wszystkie pliki źródłowe są zakodowane w systemie UTF-8, co zapewnia poprawne działanie symboli i znaków specjalnych.
-* Pliki zewnętrzne: Program wymaga dostępu do pliku czcionki 'font.ttf' znajdującego się w głównym katalogu roboczym.
-* Biblioteki dynamiczne: Należy upewnić się, że pliki .dll z folderu 'SDL_assets' są dostępne dla kompilatora i pliku wykonywalnego.
+2. STRUKTURA PROJEKTU
+ `tictactoe.c` – Główny kod źródłowy gry (logika, AI, obsługa grafiki).
+ `Makefile` – Skrypt do automatycznej kompilacji projektu.
+ `font.ttf` – Plik czcionki wymagany do działania interfejsu.
 
-STRUKTURA PROJEKTU:
-* tictactoe.c: Główny moduł aplikacji zawierający logikę gry, silnik graficzny oraz algorytm sztucznej inteligencji.
-* Makefile: Skrypt do automatyzacji procesu budowania projektu (kompilacja i linkowanie).
-* font.ttf: Plik czcionki niezbędny do poprawnego działania interfejsu UI.
+ 3. INSTRUKCJA URUCHOMIENIA
+Należy wejść w terminalu do katalogu `projekt1-main`.
 
-INSTRUKCJA BUDOWANIA PROGRAMU:
-Po rozpakowaniu plików proszę wpisać w terminalu:
-cd projekt1-main
+Opcja A: Automatyczna (Zalecana)
+Wpisz w terminalu:
+make run
 
-A. Automatyczna kompilacja (rekomendowana):
-W terminalu (w folderze z projektem) należy wywołać komendę:
-   > make run
-Spowoduje to skompilowanie kodu do pliku 'tictactoe.exe' i jego natychmiastowe uruchomienie.
+Opcja B: Ręczna kompilacja (MinGW)
+Jeżeli polecenie `make` nie jest dostępne, użyj poniższej komendy:
+gcc tictactoe.c -o tictactoe.exe -L../SDL_assets/x86_64-w64-mingw32/lib -lmingw32 -lSDL2main -lSDL2 -lSDL2_ttf
 
-B. Kompilacja ręczna (Windows/MinGW):
-W przypadku braku narzędzia make, należy użyć bezpośredniego wywołania GCC:
-   gcc tictactoe.c -o tictactoe.exe -L../SDL_assets/x86_64-w64-mingw32/lib -lmingw32 -lSDL2main -lSDL2 -lSDL2_ttf
-   ./tictactoe.exe
+A następnie uruchom:
+./tictactoe.exe
 
-CECHY I FUNKCJONALNOŚCI:
-* Skalowalność rozgrywki: Możliwość wyboru rozmiaru pola gry: 3x3, 4x4 oraz 5x5 bezpośrednio z poziomu menu.
-* Zaawansowane AI: Przeciwnik komputerowy podejmuje decyzje w oparciu o algorytm Minimax z optymalizacją Alpha-Beta Pruning.
-* Graficzny interfejs użytkownika: W pełni interaktywne menu główne z obsługą zdarzeń myszy (podświetlanie przycisków).
-* System stanów gry: Czytelne komunikaty o turze gracza, procesie myślowym AI oraz końcowym werdykcie (wygrana/przegrana/remis).
-
-UWAGI KOŃCOWE:
-Dla poprawnego linkowania bibliotek, folder 'SDL_assets' musi znajdować się w katalogu nadrzędnym względem plików źródłowych, zgodnie ze ścieżką zdefiniowaną w Makefile.
-
+4. FUNKCJONALNOŚĆ
+Rozmiar planszy:** Możliwość wyboru trybu 3x3, 4x4 lub 5x5 w menu głównym.
+Sztuczna Inteligencja:** Przeciwnik komputerowy oparty na algorytmie Minimax z optymalizacją Alpha-Beta Pruning.
+Interfejs:** Graficzne menu z obsługą myszki, komunikaty o stanie gry (tura gracza, wygrana, remis).
